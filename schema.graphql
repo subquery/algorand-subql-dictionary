@@ -1,0 +1,32 @@
+type transactions @entity {
+
+  id: ID! #id is a required field
+
+  txType:String!
+#  axfer, afrz
+  assetId:BigInt
+
+
+  sender:String
+
+  receiver:String
+ 
+  # pay
+
+  # keyreg
+  nonParticipant: Boolean
+
+  # acfg
+  
+  # axfer
+
+  # afrz
+  newFreezeStatus:Boolean
+  address: String
+
+  # appl
+  applicationId:BigInt
+
+
+
+}
