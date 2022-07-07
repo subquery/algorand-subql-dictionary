@@ -1,5 +1,8 @@
 type transactions @entity {
   id: ID! #id is a required field
+  # required for dictionary to work
+  blockHeight: BigInt!
+  
   txType: String!
   #  axfer, afrz
   assetId: BigInt

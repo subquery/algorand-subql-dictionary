@@ -16,6 +16,8 @@ export class Transactions implements Entity {
 
     public id: string;
 
+    public blockHeight: bigint;
+
     public txType: string;
 
     public assetId?: bigint;

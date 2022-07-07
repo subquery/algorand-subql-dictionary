@@ -4,7 +4,7 @@ export async function handleTransaction(txn: any): Promise<void> {
   const newTransaction = new Transactions(`${txn.id}`);
 
   newTransaction.txType = txn.txType;
-
+  newTransaction.blockHeight = txn.confirmedRound;
   if (newTransaction.txType === "acfg") {
     newTransaction.assetId = BigInt(txn?.assetConfigTransaction?.assetId);
   }
