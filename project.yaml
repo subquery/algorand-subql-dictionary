@@ -57,12 +57,13 @@ network:
   apiKey: yGUzCVJOvj1belzAu8v7q9kGSd7F1N557rzi9OgK
 dataSources:
   - kind: algorand/Runtime
-    startBlock: 1
+    startBlock: 50000
     mapping:
       file: ./dist/index.js
       handlers:
         - handler: handleTransaction
           kind: algorand/TransactionHandler    
+  
   
       
                 
