@@ -51,10 +51,8 @@ repository: 'https://github.com/subquery/subql-starter'
 schema:
   file: ./schema.graphql
 network:
-  chainId: '0x91b171bb158e2d3848fa23a9f1c25182fb8e20313b2c1eb49219da7a70ce90c3'
-  endpoint: 'wss://polkadot.api.onfinality.io/public-ws'
-  algorandRpc: https://testnet-algorand.api.purestake.io/idx2
-  apiKey: yGUzCVJOvj1belzAu8v7q9kGSd7F1N557rzi9OgK
+  chainId: 'SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI='
+  endpoint: 'https://algoindexer.testnet.algoexplorerapi.io'
 dataSources:
   - kind: algorand/Runtime
     startBlock: 50000
