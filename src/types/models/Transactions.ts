@@ -20,7 +20,7 @@ export class Transactions implements Entity {
 
     public txType: string;
 
-    public assetId?: string;
+    public assetId?: bigint;
 
     public sender?: string;
 
@@ -32,7 +32,7 @@ export class Transactions implements Entity {
 
     public address?: string;
 
-    public applicationId?: string;
+    public applicationId?: bigint;
 
 
     async save(): Promise<void>{

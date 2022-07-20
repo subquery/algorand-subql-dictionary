@@ -5,7 +5,7 @@ type transactions @entity {
   
   txType: String!
   #  axfer, afrz
-  assetId: String
+  assetId: BigInt
 
   sender: String
 
@@ -25,5 +25,5 @@ type transactions @entity {
   address: String
 
   # appl
-  applicationId: String
+  applicationId: BigInt
 }

@@ -27,5 +27,8 @@
   },
   "resolutions": {
     "ipfs-unixfs": "6.0.6"
+  },
+  "dependencies": {
+    "algosdk": "^1.18.1"
   }
 }
