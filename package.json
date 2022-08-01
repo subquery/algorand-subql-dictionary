@@ -27,7 +27,7 @@
     "ipfs-unixfs": "6.0.6"
   },
   "dependencies": {
-    "@subql/types-algorand": "^1.1.1-0",
+    "@subql/types-algorand": "latest",
     "algosdk": "^1.18.1"
   }
 }
