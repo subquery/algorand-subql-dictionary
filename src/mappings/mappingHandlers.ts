@@ -1,8 +1,8 @@
-import { AlgorandTransaction } from "@subql/types-algorand";
-import { Transactions } from "../types";
+import { AlgorandTransaction, AlgorandBlock } from "@subql/types-algorand";
+import { Transaction } from "../types";
 
-export async function handleTransaction(txn: AlgorandTransaction): Promise<void> {
-  const newTransaction = new Transactions(`${txn.id}`);
+function handleTransaction(txn: AlgorandTransaction): Transaction {
+  const newTransaction = new Transaction(`${txn.id}`);
 
   newTransaction.txType = txn.txType;
   newTransaction.blockHeight = BigInt(txn.confirmedRound);
@@ -30,5 +30,14 @@ export async function handleTransaction(txn: AlgorandTransaction): Promise<void>
     newTransaction.receiver = txn?.paymentTransaction.receiver;
   }
 
-  await newTransaction.save();
+  return newTransaction;
 }
+
+export async function handleBlock(block: AlgorandBlock): Promise<void> {
+
+  const txs = block.transactions.map(tx => handleTransaction(tx));
+
+  await store.bulkCreate('Transaction', txs);
+}
+
+

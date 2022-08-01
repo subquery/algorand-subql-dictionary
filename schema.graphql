@@ -1,29 +1,24 @@
-type transactions @entity {
+type Transaction @entity {
   id: ID! #id is a required field
   # required for dictionary to work
-  blockHeight: BigInt!
-  
-  txType: String!
+  blockHeight: BigInt! @index
+  txType: String! @index
+
   #  axfer, afrz
-  assetId: BigInt
-
-  sender: String
-
-  receiver: String
+  assetId: BigInt @index
+  sender: String! @index
+  receiver: String! @index
 
   # pay
-
   # keyreg
   nonParticipant: Boolean
 
   # acfg
-
   # axfer
-
   # afrz
   newFreezeStatus: Boolean
-  address: String
+  address: String @index
 
   # appl
-  applicationId: BigInt
+  applicationId: BigInt @index
 }
