@@ -4,7 +4,7 @@ name: starter-entity
 version: 1.0.0
 runner:
   node:
-    name: '@subql/node'
+    name: '@subql/node-algorand'
     version: '>=1.0.0'
   query:
     name: '@subql/query'
