@@ -1,4 +1,3 @@
-import { TransactionType } from 'algosdk';
 import { AlgorandTransaction, AlgorandBlock } from "@subql/types-algorand";
 import { Transaction } from "../types";
 
@@ -9,21 +8,21 @@ function handleTransaction(tx: AlgorandTransaction): Transaction {
   transaction.blockHeight = BigInt(tx.confirmedRound);
 
   switch(tx.txType) {
-    case TransactionType.acfg:
+    case 'acfg':
       transaction.assetId = BigInt(tx.assetConfigTransaction.assetId);
-    case TransactionType.afrz:
+    case 'afrz':
       transaction.newFreezeStatus = tx.assetFreezeTransaction.newFreezeStatus;
       transaction.address = tx.assetFreezeTransaction.address;
       transaction.assetId = BigInt(tx.assetFreezeTransaction.assetId);
-    case TransactionType.axfer:
+    case 'axfer':
       transaction.sender = tx.sender;
       transaction.receiver = tx.assetTransferTransaction.receiver;
       transaction.assetId = BigInt(tx.assetTransferTransaction.assetId);
-    case TransactionType.appl:
+    case 'appl':
       transaction.applicationId = BigInt(tx.applicationTransaction.applicationId);
-    case TransactionType.keyreg:
+    case 'keyreg':
       transaction.nonParticipant = tx.keyregTransaction.nonParticipation;
-    case TransactionType.pay:
+    case 'pay':
       transaction.sender = tx.sender;
       transaction.receiver = tx.paymentTransaction.receiver;
   }
