@@ -7,7 +7,7 @@ type Transaction @entity {
   #  axfer, afrz
   assetId: BigInt @index
   sender: String! @index
-  receiver: String! @index
+  receiver: String
 
   # pay
   # keyreg

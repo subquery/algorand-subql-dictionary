@@ -6,25 +6,32 @@ function handleTransaction(tx: AlgorandTransaction): Transaction {
 
   transaction.txType = tx.txType;
   transaction.blockHeight = BigInt(tx.confirmedRound);
+  transaction.sender = tx.sender;
 
   switch(tx.txType) {
     case 'acfg':
       transaction.assetId = BigInt(tx.assetConfigTransaction.assetId);
+      break;
     case 'afrz':
       transaction.newFreezeStatus = tx.assetFreezeTransaction.newFreezeStatus;
       transaction.address = tx.assetFreezeTransaction.address;
       transaction.assetId = BigInt(tx.assetFreezeTransaction.assetId);
+      break;
     case 'axfer':
-      transaction.sender = tx.sender;
       transaction.receiver = tx.assetTransferTransaction.receiver;
       transaction.assetId = BigInt(tx.assetTransferTransaction.assetId);
+      break;
     case 'appl':
       transaction.applicationId = BigInt(tx.applicationTransaction.applicationId);
+      break;
     case 'keyreg':
       transaction.nonParticipant = tx.keyregTransaction.nonParticipation;
+      break;
     case 'pay':
-      transaction.sender = tx.sender;
       transaction.receiver = tx.paymentTransaction.receiver;
+      break;
+    default:
+      throw new Error(`Unknown transaction type: ${tx.txType}`);
   }
 
   return transaction;
