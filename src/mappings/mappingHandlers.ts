@@ -2,11 +2,13 @@ import { AlgorandTransaction, AlgorandBlock } from "@subql/types-algorand";
 import { Transaction } from "../types";
 
 function handleTransaction(tx: AlgorandTransaction): Transaction {
-  const transaction = new Transaction(`${tx.id}`);
+  const transaction = Transaction.create({
+    id: `${tx.id}`,
+    txType: tx.txType,
+    blockHeight: BigInt(tx.confirmedRound),
+    sender: tx.sender,
+  });
 
-  transaction.txType = tx.txType;
-  transaction.blockHeight = BigInt(tx.confirmedRound);
-  transaction.sender = tx.sender;
 
   switch(tx.txType) {
     case 'acfg':
