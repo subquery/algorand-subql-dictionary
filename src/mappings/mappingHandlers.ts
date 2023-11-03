@@ -46,7 +46,9 @@ export async function handleBlock(block: AlgorandBlock): Promise<void> {
 
   const txs = block.transactions.map(tx => handleTransaction(tx));
 
-  await store.bulkCreate('Transaction', txs);
+  for (const tx of txs ) {
+    await tx.save()
+  }
 }
 
 

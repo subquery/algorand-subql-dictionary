@@ -6,6 +6,9 @@ runner:
   node:
     name: '@subql/node-algorand'
     version: '>=1.0.0'
+    options:
+      unfinalizedBlocks: false
+      historical: false
   query:
     name: '@subql/query'
     version: '*'
