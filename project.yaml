@@ -5,7 +5,7 @@ version: 1.0.0
 runner:
   node:
     name: '@subql/node-algorand'
-    version: '>=1.0.0'
+    version: '>=3.0.0'
     options:
       unfinalizedBlocks: false
       historical: false
