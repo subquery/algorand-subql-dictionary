@@ -20,7 +20,10 @@ schema:
   file: ./schema.graphql
 network:
   chainId: 'wGHE2Pwdvd7S12BL5FaOP20EGYesN73ktiC1qzkkit8='
-  endpoint: 'https://algoindexer.algoexplorerapi.io'
+  endpoint: 'https://mainnet-idx.algonode.cloud/'
+parent:
+  reference: QmYNRtrcD2QKftkff2UpjV3fr3ubPZuYahTNDAct4Ad2NW
+  untilBlock: 46514102
 dataSources:
   - kind: algorand/Runtime
     startBlock: 1
