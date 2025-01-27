@@ -35,6 +35,9 @@ function handleTransaction(tx: AlgorandTransaction): Transaction {
     case 'stpf':
       // not storing any relative info regarding this type
       break;
+    case 'hb':
+      // Heartbeat transaction not storing any relative info regarding this type
+      break;
     default:
       throw new Error(`Unknown transaction type: ${tx.txType}`);
   }
